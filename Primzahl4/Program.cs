@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
+using static System.Math;
 
-const int maxNumberOfPrimes = 10_000_000;
+const int maxNumberOfPrimes = 100;
 
 
 var primes = new int[maxNumberOfPrimes];
@@ -12,7 +13,7 @@ var stopWatch = Stopwatch.StartNew();
 
 while (primesCount < maxNumberOfPrimes)
 {
-    var maxTeiler = (int)Math.Round(Math.Sqrt(candidate));
+    var maxTeiler = Round(Sqrt(candidate));
     var isPrime = true;
 
     for (var i = 0; i < primesCount; i++)
@@ -38,4 +39,4 @@ stopWatch.Stop();
 
 Console.WriteLine(stopWatch.Elapsed);
 
-// Array.ForEach(primes, p => Console.Write(p + " "));
+Array.ForEach(primes, p => Console.Write(p + " "));
